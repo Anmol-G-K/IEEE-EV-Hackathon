@@ -1,6 +1,6 @@
 # eda_car_hacking_polars_splits.py
-# Enhanced EDA for CAN dataset using Polars
-# Produces LLM-friendly JSON + CSV outputs with schema-safe concat
+# EDA for CAN dataset using Polars
+# Robust to missing SubClass (5 vs 6 column case)
 
 import os
 import json
@@ -10,7 +10,7 @@ import polars as pl
 # ---------------- Paths ----------------
 ROOT = Path(__file__).resolve().parent.parent
 DATA_ROOT = ROOT / "data"
-OUTPUT_DIR = ROOT / "eda_out"
+OUTPUT_DIR = ROOT / "out" / "eda_out"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 JSON_OUT = OUTPUT_DIR / "eda_summary.json"
@@ -26,23 +26,12 @@ EXPECTED_COLS = ["Timestamp", "Arbitration_ID", "DLC", "Data", "Class", "SubClas
 
 # ---------------- Helpers ----------------
 def scan_split(split: str, base_dir: Path) -> pl.LazyFrame:
-    """
-    Scan all CSVs under base_dir, enforce consistent schema.
-    """
     if not base_dir.exists():
-        return pl.LazyFrame(schema={c: pl.Utf8 for c in EXPECTED_COLS}).with_columns(
-            pl.lit(split).alias("split"),
-            pl.lit("").alias("source_file"),
-            pl.lit("").alias("source_dir"),
-        )
+        return None
 
     files = sorted(base_dir.rglob("*.csv"))
     if not files:
-        return pl.LazyFrame(schema={c: pl.Utf8 for c in EXPECTED_COLS}).with_columns(
-            pl.lit(split).alias("split"),
-            pl.lit("").alias("source_file"),
-            pl.lit("").alias("source_dir"),
-        )
+        return None
 
     lfs = []
     for f in files:
@@ -52,7 +41,7 @@ def scan_split(split: str, base_dir: Path) -> pl.LazyFrame:
             ignore_errors=True,
             infer_schema_length=5000,
         )
-        # Ensure all expected cols exist
+        # Add missing columns (e.g., SubClass in 5-col files)
         for c in EXPECTED_COLS:
             if c not in lf.columns:
                 lf = lf.with_columns(pl.lit(None).cast(pl.Utf8).alias(c))
@@ -76,29 +65,37 @@ def normalize(lf: pl.LazyFrame) -> pl.LazyFrame:
             pl.col("Class").cast(pl.Utf8, strict=False),
             pl.col("SubClass").cast(pl.Utf8, strict=False),
         ]
-    ).with_columns(
-        [
-            pl.when(pl.col("Data").is_not_null())
-              .then(pl.col("Data").str.replace_all(r"[^0-9A-Fa-f]", "").str.to_uppercase())
-              .otherwise(pl.lit(None))
-              .alias("Data"),
-        ]
-    ).with_columns(
-        [
-            pl.when(pl.col("Data").is_not_null())
-              .then((pl.col("Data").str.len_chars() // 2).cast(pl.Int64))
-              .otherwise(pl.lit(None, dtype=pl.Int64))
-              .alias("data_len_bytes")
-        ]
     )
 
+    # Clean hex string payloads
+    lf = lf.with_columns(
+        pl.when(pl.col("Data").is_not_null())
+          .then(pl.col("Data")
+                .str.replace_all(r"[^0-9A-Fa-f]", "")
+                .str.to_uppercase())
+          .otherwise(None)
+          .alias("Data")
+    )
+
+    # Derive byte length
+    lf = lf.with_columns(
+        pl.when(pl.col("Data").is_not_null())
+          .then((pl.col("Data").str.len_chars() // 2).cast(pl.Int64))
+          .otherwise(None)
+          .alias("data_len_bytes")
+    )
+
+    # Relative timestamp per file
     lf = (
         lf.group_by(["split", "source_dir", "source_file"])
-          .agg([pl.all(), pl.col("Timestamp").min().alias("_ts0")])
-          .explode(pl.exclude("_ts0"))
-          .with_columns((pl.col("Timestamp") - pl.col("_ts0")).alias("ts_rel_s"))
-          .drop("_ts0")
+          .agg([
+              pl.col("Timestamp"),
+              (pl.col("Timestamp") - pl.col("Timestamp").min()).alias("ts_rel_s"),
+              pl.all().exclude("Timestamp")
+          ])
+          .explode(pl.all().exclude(["split", "source_dir", "source_file"]))
     )
+
     return lf
 
 def write_csv(df: pl.DataFrame, name: str):
@@ -127,10 +124,25 @@ def compute_missingness(lf: pl.LazyFrame) -> dict:
     miss = lf.select(
         [
             pl.len().alias("rows"),
-            *[pl.sum(pl.col(c).is_null().cast(pl.Int64)).alias(f"missing_{c}") for c in EXPECTED_COLS]
+            *[
+                pl.col(c).is_null().cast(pl.Int64).sum().alias(f"missing_{c}")
+                for c in EXPECTED_COLS
+            ],
         ]
     ).collect().to_dicts()[0]
-    return {"overall": miss}
+
+    miss_split = lf.group_by("split").agg(
+        [
+            pl.len().alias("rows"),
+            *[
+                pl.col(c).is_null().cast(pl.Int64).sum().alias(f"missing_{c}")
+                for c in EXPECTED_COLS
+            ],
+        ]
+    ).sort("split").collect()
+
+    return {"overall": miss, "by_split": miss_split.to_dict(as_series=False)}
+
 
 def compute_class_dist(lf: pl.LazyFrame) -> dict:
     cls = lf.group_by("Class").agg(pl.len().alias("count")).sort("count", descending=True).collect()
@@ -165,7 +177,7 @@ def compute_time_activity(lf: pl.LazyFrame) -> dict:
 
 # ---------------- Main ----------------
 def main():
-    lfs = [scan_split(split, base) for split, base in SPLIT_MAP]
+    lfs = [scan_split(split, base) for split, base in SPLIT_MAP if scan_split(split, base) is not None]
     lf = pl.concat(lfs, how="vertical_relaxed")
     lf = normalize(lf)
 

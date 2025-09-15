@@ -4,9 +4,29 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
+
 dependencies = [
+    "markupsafe==3.0.1", # Safe version for Windows + uv
+    "matplotlib>=3.10.6",
     "numpy>=2.3.3",
     "pandas>=2.3.2",
     "polars>=1.33.1",
+    "scikit-learn>=1.7.2",
     "scipy>=1.16.2",
+    "seaborn>=0.13.2",
+    "streamlit>=1.49.1",
+    "torch>=2.8.0",
+    "torchmetrics>=1.8.2",
+    "torchvision>=0.23.0",
+    "tqdm>=4.67.1",
+    "xgboost>=3.0.5",
 ]
+
+[tool.uv]
+index-strategy = "unsafe-best-match"
+
+[[tool.uv.index]]
+url = "https://download.pytorch.org/whl/cpu"
+
+[[tool.uv.index]]
+url = "https://pypi.org/simple"

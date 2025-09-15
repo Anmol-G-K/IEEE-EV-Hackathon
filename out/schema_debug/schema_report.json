@@ -1,0 +1,555 @@
+[
+  {
+    "file": "C:\\Users\\GNKRISHNAN\\Documents\\CODING\\IEEE_EV\\data\\0_Preliminary\\0_Training\\Pre_train_D_0.csv",
+    "split": "train",
+    "n_cols": 5,
+    "columns": [
+      "Timestamp",
+      "Arbitration_ID",
+      "DLC",
+      "Data",
+      "Class"
+    ],
+    "schema": {
+      "Timestamp": "Float64",
+      "Arbitration_ID": "String",
+      "DLC": "Int64",
+      "Data": "String",
+      "Class": "String"
+    },
+    "sample": [
+      {
+        "Timestamp": 1597707827.052591,
+        "Arbitration_ID": "260",
+        "DLC": 8,
+        "Data": "06 25 05 30 FF CF 71 55",
+        "Class": "Normal"
+      },
+      {
+        "Timestamp": 1597707827.05398,
+        "Arbitration_ID": "329",
+        "DLC": 8,
+        "Data": "4A C5 7E 8C 31 2D 01 10",
+        "Class": "Normal"
+      },
+      {
+        "Timestamp": 1597707827.05467,
+        "Arbitration_ID": "38D",
+        "DLC": 8,
+        "Data": "00 00 49 00 90 7F FE 01",
+        "Class": "Normal"
+      },
+      {
+        "Timestamp": 1597707827.054904,
+        "Arbitration_ID": "420",
+        "DLC": 8,
+        "Data": "50 1E 00 C8 FC 4F 6A 00",
+        "Class": "Normal"
+      },
+      {
+        "Timestamp": 1597707827.05514,
+        "Arbitration_ID": "421",
+        "DLC": 8,
+        "Data": "FE 07 00 FF E3 7F 00 52",
+        "Class": "Normal"
+      }
+    ]
+  },
+  {
+    "file": "C:\\Users\\GNKRISHNAN\\Documents\\CODING\\IEEE_EV\\data\\0_Preliminary\\0_Training\\Pre_train_D_1.csv",
+    "split": "train",
+    "n_cols": 6,
+    "columns": [
+      "Timestamp",
+      "Arbitration_ID",
+      "DLC",
+      "Data",
+      "Class",
+      "SubClass"
+    ],
+    "schema": {
+      "Timestamp": "Float64",
+      "Arbitration_ID": "String",
+      "DLC": "Int64",
+      "Data": "String",
+      "Class": "String",
+      "SubClass": "String"
+    },
+    "sample": [
+      {
+        "Timestamp": 1597759710.1258929,
+        "Arbitration_ID": "153",
+        "DLC": 8,
+        "Data": "20 A1 10 FF 00 FF 50 1F",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1597759710.126151,
+        "Arbitration_ID": "220",
+        "DLC": 8,
+        "Data": "13 24 7F 60 05 FF BF 10",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1597759710.1263099,
+        "Arbitration_ID": "507",
+        "DLC": 4,
+        "Data": "08 00 00 01",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1597759710.127247,
+        "Arbitration_ID": "356",
+        "DLC": 8,
+        "Data": "00 00 00 80 16 00 00 00",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1597759710.12748,
+        "Arbitration_ID": "340",
+        "DLC": 8,
+        "Data": "FC 03 00 E4 B7 21 FA 3C",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      }
+    ]
+  },
+  {
+    "file": "C:\\Users\\GNKRISHNAN\\Documents\\CODING\\IEEE_EV\\data\\0_Preliminary\\0_Training\\Pre_train_D_2.csv",
+    "split": "train",
+    "n_cols": 6,
+    "columns": [
+      "Timestamp",
+      "Arbitration_ID",
+      "DLC",
+      "Data",
+      "Class",
+      "SubClass"
+    ],
+    "schema": {
+      "Timestamp": "Float64",
+      "Arbitration_ID": "String",
+      "DLC": "Int64",
+      "Data": "String",
+      "Class": "String",
+      "SubClass": "String"
+    },
+    "sample": [
+      {
+        "Timestamp": 1599046395.285203,
+        "Arbitration_ID": "164",
+        "DLC": 4,
+        "Data": "00 08 12 5C",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599046395.28546,
+        "Arbitration_ID": "340",
+        "DLC": 8,
+        "Data": "00 00 00 24 D6 01 B5 30",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599046395.28569,
+        "Arbitration_ID": "386",
+        "DLC": 8,
+        "Data": "00 00 00 80 00 40 00 80",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599046395.285855,
+        "Arbitration_ID": "485",
+        "DLC": 4,
+        "Data": "02 00 00 00",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599046395.2866788,
+        "Arbitration_ID": "130",
+        "DLC": 8,
+        "Data": "04 80 58 80 00 00 0E 56",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      }
+    ]
+  },
+  {
+    "file": "C:\\Users\\GNKRISHNAN\\Documents\\CODING\\IEEE_EV\\data\\0_Preliminary\\0_Training\\Pre_train_S_0.csv",
+    "split": "train",
+    "n_cols": 5,
+    "columns": [
+      "Timestamp",
+      "Arbitration_ID",
+      "DLC",
+      "Data",
+      "Class"
+    ],
+    "schema": {
+      "Timestamp": "Float64",
+      "Arbitration_ID": "String",
+      "DLC": "Int64",
+      "Data": "String",
+      "Class": "String"
+    },
+    "sample": [
+      {
+        "Timestamp": 1597707573.06673,
+        "Arbitration_ID": "391",
+        "DLC": 8,
+        "Data": "00 00 00 00 00 00 04 77",
+        "Class": "Normal"
+      },
+      {
+        "Timestamp": 1597707573.067003,
+        "Arbitration_ID": "251",
+        "DLC": 8,
+        "Data": "F0 03 A3 EE 00 F3 07 80",
+        "Class": "Normal"
+      },
+      {
+        "Timestamp": 1597707573.067168,
+        "Arbitration_ID": "2B0",
+        "DLC": 6,
+        "Data": "1D 00 00 07 83 AE",
+        "Class": "Normal"
+      },
+      {
+        "Timestamp": 1597707573.067356,
+        "Arbitration_ID": "4F1",
+        "DLC": 4,
+        "Data": "20 00 60 41",
+        "Class": "Normal"
+      },
+      {
+        "Timestamp": 1597707573.067575,
+        "Arbitration_ID": "50C",
+        "DLC": 8,
+        "Data": "40 0E 00 08 06 10 00 D2",
+        "Class": "Normal"
+      }
+    ]
+  },
+  {
+    "file": "C:\\Users\\GNKRISHNAN\\Documents\\CODING\\IEEE_EV\\data\\0_Preliminary\\0_Training\\Pre_train_S_1.csv",
+    "split": "train",
+    "n_cols": 6,
+    "columns": [
+      "Timestamp",
+      "Arbitration_ID",
+      "DLC",
+      "Data",
+      "Class",
+      "SubClass"
+    ],
+    "schema": {
+      "Timestamp": "Float64",
+      "Arbitration_ID": "String",
+      "DLC": "Int64",
+      "Data": "String",
+      "Class": "String",
+      "SubClass": "String"
+    },
+    "sample": [
+      {
+        "Timestamp": 1597759320.313806,
+        "Arbitration_ID": "356",
+        "DLC": 8,
+        "Data": "00 00 00 80 16 00 00 00",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1597759320.314041,
+        "Arbitration_ID": "366",
+        "DLC": 7,
+        "Data": "31 EA 0A 31 30 00 01",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1597759320.3142688,
+        "Arbitration_ID": "367",
+        "DLC": 8,
+        "Data": "00 00 00 00 00 00 C5 0A",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1597759320.314506,
+        "Arbitration_ID": "368",
+        "DLC": 8,
+        "Data": "00 00 00 00 00 E4 0A 40",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1597759320.314738,
+        "Arbitration_ID": "260",
+        "DLC": 8,
+        "Data": "05 31 02 30 00 BD 4F 16",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      }
+    ]
+  },
+  {
+    "file": "C:\\Users\\GNKRISHNAN\\Documents\\CODING\\IEEE_EV\\data\\0_Preliminary\\0_Training\\Pre_train_S_2.csv",
+    "split": "train",
+    "n_cols": 6,
+    "columns": [
+      "Timestamp",
+      "Arbitration_ID",
+      "DLC",
+      "Data",
+      "Class",
+      "SubClass"
+    ],
+    "schema": {
+      "Timestamp": "Float64",
+      "Arbitration_ID": "String",
+      "DLC": "Int64",
+      "Data": "String",
+      "Class": "String",
+      "SubClass": "String"
+    },
+    "sample": [
+      {
+        "Timestamp": 1599043357.9238188,
+        "Arbitration_ID": "251",
+        "DLC": 8,
+        "Data": "FE 03 17 D3 00 FE 07 80",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599043357.924044,
+        "Arbitration_ID": "2B0",
+        "DLC": 6,
+        "Data": "C1 FF 00 07 D7 32",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599043357.9242651,
+        "Arbitration_ID": "38D",
+        "DLC": 8,
+        "Data": "00 00 49 00 F0 7F FE 51",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599043357.924491,
+        "Arbitration_ID": "420",
+        "DLC": 8,
+        "Data": "50 1E 00 C8 FC 4F 6A 00",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599043357.9247289,
+        "Arbitration_ID": "421",
+        "DLC": 8,
+        "Data": "FE 07 00 FF E3 7F 00 9E",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      }
+    ]
+  },
+  {
+    "file": "C:\\Users\\GNKRISHNAN\\Documents\\CODING\\IEEE_EV\\data\\0_Preliminary\\1_Submission\\Pre_submit_D.csv",
+    "split": "test",
+    "n_cols": 6,
+    "columns": [
+      "Timestamp",
+      "Arbitration_ID",
+      "DLC",
+      "Data",
+      "Class",
+      "SubClass"
+    ],
+    "schema": {
+      "Timestamp": "Float64",
+      "Arbitration_ID": "String",
+      "DLC": "Int64",
+      "Data": "String",
+      "Class": "String",
+      "SubClass": "String"
+    },
+    "sample": [
+      {
+        "Timestamp": 1599046795.646978,
+        "Arbitration_ID": "130",
+        "DLC": 8,
+        "Data": "00 80 B0 80 00 00 0A 41",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599046795.647217,
+        "Arbitration_ID": "140",
+        "DLC": 8,
+        "Data": "C8 7F 00 72 20 00 0A 30",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599046795.647435,
+        "Arbitration_ID": "260",
+        "DLC": 8,
+        "Data": "05 26 01 30 00 BB 57 2B",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599046795.647883,
+        "Arbitration_ID": "329",
+        "DLC": 8,
+        "Data": "4A BF 7D 8C 31 2A 00 10",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599046795.648119,
+        "Arbitration_ID": "251",
+        "DLC": 8,
+        "Data": "F6 03 13 18 00 F9 F7 7F",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      }
+    ]
+  },
+  {
+    "file": "C:\\Users\\GNKRISHNAN\\Documents\\CODING\\IEEE_EV\\data\\0_Preliminary\\1_Submission\\Pre_submit_S.csv",
+    "split": "test",
+    "n_cols": 6,
+    "columns": [
+      "Timestamp",
+      "Arbitration_ID",
+      "DLC",
+      "Data",
+      "Class",
+      "SubClass"
+    ],
+    "schema": {
+      "Timestamp": "Float64",
+      "Arbitration_ID": "String",
+      "DLC": "Int64",
+      "Data": "String",
+      "Class": "String",
+      "SubClass": "String"
+    },
+    "sample": [
+      {
+        "Timestamp": 1599045353.8784769,
+        "Arbitration_ID": "436",
+        "DLC": 4,
+        "Data": "00 00 00 04",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599045353.878663,
+        "Arbitration_ID": "453",
+        "DLC": 5,
+        "Data": "00 88 91 00 EA",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599045353.8788939,
+        "Arbitration_ID": "470",
+        "DLC": 8,
+        "Data": "15 41 01 04 54 50 40 B5",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599045353.879139,
+        "Arbitration_ID": "47F",
+        "DLC": 8,
+        "Data": "00 83 FF FA 00 78 00 8B",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 1599045353.879373,
+        "Arbitration_ID": "260",
+        "DLC": 8,
+        "Data": "05 2F 00 30 00 BC 51 0A",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      }
+    ]
+  },
+  {
+    "file": "C:\\Users\\GNKRISHNAN\\Documents\\CODING\\IEEE_EV\\data\\1_Final\\Fin_host_session_submit_S.csv",
+    "split": "val",
+    "n_cols": 6,
+    "columns": [
+      "Timestamp",
+      "Arbitration_ID",
+      "DLC",
+      "Data",
+      "Class",
+      "SubClass"
+    ],
+    "schema": {
+      "Timestamp": "Float64",
+      "Arbitration_ID": "String",
+      "DLC": "Int64",
+      "Data": "String",
+      "Class": "String",
+      "SubClass": "String"
+    },
+    "sample": [
+      {
+        "Timestamp": 16.05212,
+        "Arbitration_ID": "58B",
+        "DLC": 8,
+        "Data": "11 00 00 00 00 00 00 00",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 16.05236,
+        "Arbitration_ID": "130",
+        "DLC": 8,
+        "Data": "14 80 10 80 00 00 0A 73",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 16.0526,
+        "Arbitration_ID": "140",
+        "DLC": 8,
+        "Data": "80 7F 00 73 20 00 0A A1",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 16.05342,
+        "Arbitration_ID": "356",
+        "DLC": 8,
+        "Data": "00 00 00 80 09 00 00 00",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      },
+      {
+        "Timestamp": 16.05363,
+        "Arbitration_ID": "366",
+        "DLC": 7,
+        "Data": "17 60 0A 17 16 00 01",
+        "Class": "Normal",
+        "SubClass": "Normal"
+      }
+    ]
+  }
+]

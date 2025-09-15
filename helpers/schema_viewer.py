@@ -7,7 +7,7 @@ import json
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_ROOT = ROOT / "data"
-OUTPUT_DIR = ROOT / "schema_debug"
+OUTPUT_DIR = ROOT /"out" /"schema_debug"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 SPLIT_MAP = [
@@ -32,6 +32,9 @@ def scan_and_describe(file: Path, split: str) -> dict:
         "schema": schema,
         "sample": head,
     }
+
+def print_head(lf: pl.LazyFrame, n: int = 10) -> None:
+	print(lf.head(n).collect())
 
 def main():
     report = []
