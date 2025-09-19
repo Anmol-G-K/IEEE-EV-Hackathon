@@ -13,8 +13,9 @@ A comprehensive machine learning framework for detecting intrusions in automotiv
 
 This project addresses the critical challenge of securing modern vehicles against cyber attacks by developing advanced intrusion detection systems (IDS) for Controller Area Network (CAN) bus communications. The framework implements multiple state-of-the-art machine learning approaches:
 
-- **🔗 Graph Convolutional Networks (GCN)** for network topology-based anomaly detection
-- **Hybrid ML Framework** combining sequence transformers, graph neural networks, and contrastive learning
+- **🔗 Graph Convolutional Networks (GCN) [WIP]** for network topology-based anomaly detection
+- **Hybrid ML Framework [WIP]** combining sequence transformers, graph neural networks, and contrastive learning
+
 - **🌳 Traditional ML Models** (Random Forest & XGBoost) for baseline comparison and ensemble methods
 - **Interactive Streamlit Dashboard** for real-time analysis and model evaluation
 
@@ -175,7 +176,7 @@ This generates detailed reports in `out/eda_out/` including:
 - Message frequency patterns
 - Arbitration ID statistics
 
-### 2. Graph Convolutional Network
+### 2. Graph Convolutional Network (WIP)
 
 Train a GCN for anomaly detection:
 
@@ -212,7 +213,8 @@ python src/ML.py
 - Comprehensive feature extraction pipeline
 - Cross-validation and performance metrics
 
-### 4. Hybrid ML Framework
+### 4. Hybrid ML Framework (WIP)
+
 
 Train the advanced hybrid model:
 
